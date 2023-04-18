@@ -44,7 +44,8 @@ main{
 }
 main div{
     width: 250px;
-    height: 320px;
+    height: 325px;
+    border-radius: 10px;
     margin: 19px 15px;
     background: rgb(63, 63, 65);
 }
