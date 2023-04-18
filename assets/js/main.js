@@ -8,6 +8,37 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 
 showMovies(apiUrl);
+
+// Event Listener 1: Load More Movies
+document.getElementById('load-more').addEventListener('click', () => {
+    const nextPage = Number(document.getElementById('page-number').textContent) + 1;
+    const nextPageUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${nextPage}`;
+    showMovies(nextPageUrl);
+    document.getElementById('page-number').textContent = nextPage;
+});
+
+// Event Listener 2: Clear Search Results
+document.getElementById('clear-search').addEventListener('click', () => {
+    main.innerHTML = '';
+    document.getElementById('page-number').textContent = 1;
+    showMovies(apiUrl);
+    document.getElementById('search').value = '';
+});
+
+// Event Listener 3: Search for Movies
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    main.innerHTML = '';
+     
+    const searchTerm = search.value;
+
+    if (searchTerm) {
+        showMovies(SEARCHAPI + searchTerm);
+        document.getElementById('page-number').textContent = 1;
+        search.value = "";
+    }
+});
+
 function showMovies(url){
     fetch(url).then(res => res.json())
     .then(function(data){
@@ -25,17 +56,3 @@ function showMovies(url){
     }); 
 });
 }
-
-
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    main.innerHTML = '';
-     
-    const searchTerm = search.value;
-
-    if (searchTerm) {
-        showMovies(SEARCHAPI + searchTerm);
-        search.value = "";
-    }
-});
-
