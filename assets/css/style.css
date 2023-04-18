@@ -46,7 +46,7 @@ main div{
     width: 250px;
     height: 320px;
     margin: 19px 15px;
-    background: red;
+    background: rgb(63, 63, 65);
 }
 img{
     width: 100%;
