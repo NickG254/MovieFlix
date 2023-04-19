@@ -61,3 +61,26 @@ h2{
     text-align: center;
     color: #fff;
 }
+
+#load-more {
+    width: 15vh;
+    height: 4vh;
+    border-radius: 8px;
+    /* border: none; */
+    border-color: black;
+    margin-left: 80vh;
+    margin-bottom: 7vh;
+}
+
+#load-more:hover{
+    cursor: pointer;
+}
+#clear-search{
+    width: 15vh;
+    height: 4vh;
+    border-radius: 8px;
+    border-color: black;
+}
+#clear-search:hover{
+    cursor: pointer;
+}
